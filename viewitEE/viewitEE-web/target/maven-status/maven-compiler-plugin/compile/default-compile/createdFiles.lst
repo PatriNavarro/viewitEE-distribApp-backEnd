@@ -1,0 +1,8 @@
+org\netbeans\rest\application\config\ApplicationConfig.class
+controllers\BarController.class
+controllers\LoginController.class
+controllers\MoviesController.class
+views\MoviesViews.class
+services\MovieRest.class
+filters\CORSfilter.class
+controllers\FrontController.class

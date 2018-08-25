@@ -5,14 +5,17 @@
  */
 package entities;
 
-import entities.compositePK.ScreeningId;
 import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,20 +25,29 @@ import javax.persistence.TemporalType;
  * @author Patri Navarro
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+        name="getScreeningsForMovie",
+        query="SELECT s FROM Screening s WHERE s.movie.movieId = :movieId "
+    ),
+    @NamedQuery(
+        name="getScreeningsForMovieAndDate",
+        query="SELECT s FROM Screening s WHERE s.movie.movieId = :movieId AND s.screeningDate = :date"
+    )
+})
 @Table (name = "screenings")
 public class Screening implements Serializable {
 
     private static final long serialVersionUID = 1L;
-   @EmbeddedId
-   private ScreeningId screeningId;
-   
-    @ManyToOne 
-    @MapsId("movieId")
-    private Movie movie;
     
-    @ManyToOne 
-    @MapsId("cinemaId")
-    private Cinema cinema;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column (name = "screening_id")
+    private Long screeningId;
+    
+    @ManyToOne
+    @JoinColumn (name = "movie_id")
+    private Movie movie;
     
     @Column (name = "screening_date")
     @Temporal (TemporalType.DATE)
@@ -45,7 +57,21 @@ public class Screening implements Serializable {
     @Temporal (TemporalType.TIME)
     private Calendar screeningTime;
 
-    
+    public Long getScreeningId() {
+        return screeningId;
+    }
+
+    public void setScreeningId(Long screeningId) {
+        this.screeningId = screeningId;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
+    }
 
     public Calendar getScreeningDate() {
         return screeningDate;

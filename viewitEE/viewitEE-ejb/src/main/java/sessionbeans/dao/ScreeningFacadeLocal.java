@@ -6,6 +6,7 @@
 package sessionbeans.dao;
 
 import entities.Screening;
+import java.util.Calendar;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +30,8 @@ public interface ScreeningFacadeLocal {
     List<Screening> findRange(int[] range);
 
     int count();
+    
+    public List<Screening> getScreenings(Long movieId);
+    public List<Screening> getScreenings(Long movieId, Calendar date);
     
 }

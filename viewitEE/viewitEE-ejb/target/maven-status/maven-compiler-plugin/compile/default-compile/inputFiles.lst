@@ -1,5 +1,6 @@
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\TicketFacade.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\UserFacade.java
+C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\utils\CalendarConverter.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\entities\compositePK\ScreeningId.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\TicketFacadeLocal.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\ScreenFacadeLocal.java
@@ -7,6 +8,7 @@ C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distr
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\ScreenFacade.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\entities\embeddables\MovieDetails.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\utils\AuthenticationUtils.java
+C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\utils\CalendarConverterLocal.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\com\patrinav\NewSessionBean.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\entities\Screening.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\enumerations\TicketType.java

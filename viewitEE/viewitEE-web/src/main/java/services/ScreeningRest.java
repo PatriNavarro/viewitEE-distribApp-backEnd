@@ -1,5 +1,6 @@
 package services;
 
+import entities.Movie;
 import entities.Screening;
 import java.text.ParseException;
 import java.util.Calendar;
@@ -17,6 +18,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 import sessionbeans.dao.ScreeningFacadeLocal;
+import sessionbeans.singleton.BillboardCache;
+import static sessionbeans.singleton.BillboardCache.getBillboardCache;
 import utils.CalendarConverterLocal;
 
 @Path("/screenings")
@@ -32,6 +35,9 @@ public class ScreeningRest {
     private ScreeningFacadeLocal screeningFacade;
     @EJB
     private CalendarConverterLocal calendarConverter;
+    /*
+    @EJB
+    private BillboardCache billboardCache;*/
     
     @GET
     public List<Screening> getAll(){
@@ -52,6 +58,19 @@ public class ScreeningRest {
         System.out.println("Received input parameter:" + movieId + " and " + sdate);
         Calendar date_calendar = calendarConverter.stringToCalendar(sdate,"yyyy-MM-dd");
         return screeningFacade.getScreenings(movieId,date_calendar);
+    }
+    
+    @GET
+    @Path("/billboard/{date}")
+    public List<Movie> getScreeningMovies(@PathParam("date") String sdate) throws ParseException{
+        Calendar date_calendar = calendarConverter.stringToCalendar(sdate,"yyyy-MM-dd");
+        return screeningFacade.getScreeningMovies(date_calendar);
+    }
+    
+    @GET
+    @Path("/billboard")
+    public List<Movie> getScreeningMovies(){
+        return getBillboardCache();
     }
     
 }

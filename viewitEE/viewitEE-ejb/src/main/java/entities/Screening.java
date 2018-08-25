@@ -33,6 +33,10 @@ import javax.persistence.TemporalType;
     @NamedQuery(
         name="getScreeningsForMovieAndDate",
         query="SELECT s FROM Screening s WHERE s.movie.movieId = :movieId AND s.screeningDate = :date"
+    ),
+    @NamedQuery(
+        name="getScreeningMovies",
+        query="SELECT s.movie FROM Screening s WHERE s.screeningDate = :date GROUP BY s.movie.movieId"
     )
 })
 @Table (name = "screenings")

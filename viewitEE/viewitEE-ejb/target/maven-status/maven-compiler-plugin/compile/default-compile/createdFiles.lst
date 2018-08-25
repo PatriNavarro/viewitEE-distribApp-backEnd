@@ -11,6 +11,7 @@ sessionbeans\dao\CinemaFacade.class
 sessionbeans\dao\TicketFacade.class
 enumerations\EdibleCategory.class
 sessionbeans\dao\CinemaFacadeLocal.class
+utils\CalendarConverterLocal.class
 entities\Movie_.class
 entities\Product_.class
 entities\Cinema_.class
@@ -29,6 +30,7 @@ entities\Product.class
 sessionbeans\singleton\TheLogger.class
 sessionbeans\dao\TotalOrderFacadeLocal.class
 sessionbeans\dao\OrderDetailFacadeLocal.class
+sessionbeans\singleton\BillboardCache.class
 entities\compositePK\ScreeningId.class
 entities\embeddables\MovieDetails.class
 entities\OrderDetail_.class
@@ -44,6 +46,7 @@ sessionbeans\dao\ProductFacade.class
 entities\OrderDetail.class
 sessionbeans\dao\TicketFacadeLocal.class
 entities\Group_.class
+utils\CalendarConverter.class
 entities\inherited\Ticket_.class
 enumerations\Genre.class
 sessionbeans\dao\ScreeningFacadeLocal.class

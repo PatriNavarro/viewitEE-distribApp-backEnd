@@ -1,6 +1,7 @@
 org\netbeans\rest\application\config\ApplicationConfig.class
 controllers\BarController.class
 controllers\LoginController.class
+services\ScreeningRest.class
 controllers\MoviesController.class
 views\MoviesViews.class
 services\MovieRest.class

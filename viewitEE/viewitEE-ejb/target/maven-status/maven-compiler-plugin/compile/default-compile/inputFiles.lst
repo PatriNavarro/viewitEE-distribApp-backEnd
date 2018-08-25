@@ -22,6 +22,7 @@ C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distr
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\enumerations\EdibleCategory.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\ScreeningFacade.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\dao\TotalOrderFacade.java
+C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\sessionbeans\singleton\BillboardCache.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\entities\inherited\Edible.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\enumerations\Genre.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-ejb\src\main\java\entities\TotalOrder.java

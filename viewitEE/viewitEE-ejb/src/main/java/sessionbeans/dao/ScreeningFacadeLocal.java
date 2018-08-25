@@ -5,6 +5,7 @@
  */
 package sessionbeans.dao;
 
+import entities.Movie;
 import entities.Screening;
 import java.util.Calendar;
 import java.util.List;
@@ -33,5 +34,6 @@ public interface ScreeningFacadeLocal {
     
     public List<Screening> getScreenings(Long movieId);
     public List<Screening> getScreenings(Long movieId, Calendar date);
+    List<Movie> getScreeningMovies(Calendar date);
     
 }

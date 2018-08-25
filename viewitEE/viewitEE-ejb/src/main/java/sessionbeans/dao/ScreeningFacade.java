@@ -5,6 +5,7 @@
  */
 package sessionbeans.dao;
 
+import entities.Movie;
 import entities.Screening;
 import java.util.Calendar;
 import java.util.List;
@@ -35,35 +36,22 @@ public class ScreeningFacade extends AbstractFacade<Screening> implements Screen
     
     @Override
     public List<Screening> getScreenings(Long movieId){
-       /* //create an ejbql expression
-      String ejbQL = "SELECT * FROM viewit.screenings\n" +
-                     "WHERE movie_id = :movieId \n";
-      //create query
-      Query query = em.createQuery(ejbQL); 
-      //execute the query
-      return query.getResultList();*/
-      
       TypedQuery<Screening> query = em.createNamedQuery("getScreeningsForMovie",Screening.class);
       query.setParameter("movieId", movieId);
       return query.getResultList();
-       
     }
     
     public List<Screening> getScreenings(Long movieId, Calendar date){
-        /* //create an ejbql expression
-      String ejbQL = "SELECT * FROM viewit.screenings\n" +
-                     "WHERE movie_id = :movieId \n"+
-                     "AND  screening_date = :date";
-      //create query
-      Query query = em.createQuery(ejbQL);
-      //execute the query
-      return query.getResultList();*/
-        
-        
     TypedQuery<Screening> query = em.createNamedQuery("getScreeningsForMovieAndDate", Screening.class);
     query.setParameter("movieId", movieId);
     query.setParameter("date", date);
     return query.getResultList();
+    }
+    
+    public List<Movie> getScreeningMovies(Calendar date){
+        TypedQuery<Movie> query = em.createNamedQuery("getScreeningMovies", Movie.class);
+        query.setParameter("date", date);
+        return query.getResultList();
     }
     
     

@@ -1,7 +1,10 @@
 
 package sessionbeans.singleton;
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -17,7 +20,21 @@ public class TheLogger {
     void init() {
         status = "Ready";
         System.out.println(status);
+        /*
+        LogManager.getLogManager().reset();
+        LOG.setLevel(Level.ALL);
         
+        ConsoleHandler ch = new ConsoleHandler();
+        ch.setLevel(Level.ALL);
+        LOG.addHandler(ch);
+        
+        
+        ConsoleHandler ch = new ConsoleHandler();
+        ch.setLevel(Level.INFO);
+        LOG.addHandler(ch);
+        LOG.setLevel(Level.INFO);
+        LOG.setUseParentHandlers(false);
+        */
         LOG.log(Level.INFO,"Logger ready too!");
     }
     

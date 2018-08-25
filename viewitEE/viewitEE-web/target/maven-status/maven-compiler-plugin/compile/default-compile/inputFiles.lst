@@ -3,6 +3,7 @@ C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distr
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\services\MovieRest.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\controllers\BarController.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\org\netbeans\rest\application\config\ApplicationConfig.java
+C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\interceptors\LoggerInterceptor.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\controllers\MoviesController.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\filters\CORSfilter.java
 C:\Users\Patri Navarro\Documents\GitHub\javaee-distribApp-backEnd\viewitEE-distribApp-backEnd\viewitEE\viewitEE-web\src\main\java\views\MoviesViews.java

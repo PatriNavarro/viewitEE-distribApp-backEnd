@@ -6,3 +6,4 @@ views\MoviesViews.class
 services\MovieRest.class
 filters\CORSfilter.class
 controllers\FrontController.class
+interceptors\LoggerInterceptor.class

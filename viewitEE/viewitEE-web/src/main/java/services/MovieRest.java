@@ -6,9 +6,11 @@
 package services;
 
 import entities.Movie;
+import interceptors.LoggerInterceptor;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
@@ -28,6 +30,7 @@ import sessionbeans.dao.MovieFacadeLocal;
 @Stateless
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes (MediaType.APPLICATION_JSON)
+@Interceptors(LoggerInterceptor.class)
 public class MovieRest {
     
     @Context 

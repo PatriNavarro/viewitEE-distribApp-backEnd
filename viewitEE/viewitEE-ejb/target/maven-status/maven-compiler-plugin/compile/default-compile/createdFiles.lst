@@ -26,6 +26,7 @@ entities\Group.class
 entities\inherited\Edible_.class
 entities\Screening.class
 entities\Product.class
+sessionbeans\singleton\TheLogger.class
 sessionbeans\dao\TotalOrderFacadeLocal.class
 sessionbeans\dao\OrderDetailFacadeLocal.class
 entities\compositePK\ScreeningId.class

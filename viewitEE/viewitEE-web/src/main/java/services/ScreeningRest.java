@@ -1,10 +1,14 @@
 package services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import entities.Movie;
 import entities.Screening;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -18,8 +22,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 import sessionbeans.dao.ScreeningFacadeLocal;
-import sessionbeans.singleton.BillboardCache;
-import static sessionbeans.singleton.BillboardCache.getBillboardCache;
+import static sessionbeans.singleton.ScreeningsCache.*;
 import utils.CalendarConverterLocal;
 
 @Path("/screenings")
@@ -37,7 +40,7 @@ public class ScreeningRest {
     private CalendarConverterLocal calendarConverter;
     /*
     @EJB
-    private BillboardCache billboardCache;*/
+    private ScreeningsCache billboardCache;*/
     
     @GET
     public List<Screening> getAll(){
@@ -68,9 +71,30 @@ public class ScreeningRest {
     }
     
     @GET
+    @Path("/billboard/movie/{movieId}")
+    public Movie getMovieScreening(@PathParam("movieId") Long movieId){
+        return getSingleCachedMovie(movieId);
+    }
+    
+    @GET
+    @Path("/billboard/movie/{movieId}/screenings")
+    public String getMovieScreenings(@PathParam("movieId") Long movieId) throws JsonProcessingException{
+        List<String> sscreenings = new ArrayList<>();
+        List<Calendar> screenings = getSingleCachedMovieScreenings(movieId);
+        screenings.stream()
+                .forEach(c -> {
+                    sscreenings.add(calendarConverter.calendarToString(c, "HH:mm"));
+                });
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(sscreenings);
+    }
+    
+    @GET
     @Path("/billboard")
     public List<Movie> getScreeningMovies(){
-        return getBillboardCache();
+        return getMoviesCache();
     }
+    
+    
     
 }

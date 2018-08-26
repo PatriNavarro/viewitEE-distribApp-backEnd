@@ -35,5 +35,6 @@ public interface ScreeningFacadeLocal {
     public List<Screening> getScreenings(Long movieId);
     public List<Screening> getScreenings(Long movieId, Calendar date);
     List<Movie> getScreeningMovies(Calendar date);
+    public List<Screening> getScreeningsByDate(Calendar date);
     
 }

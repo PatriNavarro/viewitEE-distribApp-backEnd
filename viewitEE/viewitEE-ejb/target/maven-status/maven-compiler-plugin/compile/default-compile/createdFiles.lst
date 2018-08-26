@@ -21,6 +21,7 @@ sessionbeans\dao\OrderDetailFacade.class
 sessionbeans\dao\TotalOrderFacade.class
 entities\User_.class
 enumerations\TicketType.class
+sessionbeans\singleton\ScreeningsCache.class
 sessionbeans\dao\ScreeningFacade.class
 sessionbeans\dao\ProductFacadeLocal.class
 entities\Group.class
@@ -30,7 +31,6 @@ entities\Product.class
 sessionbeans\singleton\TheLogger.class
 sessionbeans\dao\TotalOrderFacadeLocal.class
 sessionbeans\dao\OrderDetailFacadeLocal.class
-sessionbeans\singleton\BillboardCache.class
 entities\compositePK\ScreeningId.class
 entities\embeddables\MovieDetails.class
 entities\OrderDetail_.class

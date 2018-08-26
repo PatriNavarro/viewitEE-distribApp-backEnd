@@ -41,6 +41,7 @@ public class ScreeningFacade extends AbstractFacade<Screening> implements Screen
       return query.getResultList();
     }
     
+    @Override
     public List<Screening> getScreenings(Long movieId, Calendar date){
     TypedQuery<Screening> query = em.createNamedQuery("getScreeningsForMovieAndDate", Screening.class);
     query.setParameter("movieId", movieId);
@@ -48,11 +49,19 @@ public class ScreeningFacade extends AbstractFacade<Screening> implements Screen
     return query.getResultList();
     }
     
+    //Will be of little use, only when checking billboard for other days and cant rely on cache
+    @Override
     public List<Movie> getScreeningMovies(Calendar date){
         TypedQuery<Movie> query = em.createNamedQuery("getScreeningMovies", Movie.class);
         query.setParameter("date", date);
         return query.getResultList();
     }
     
+    @Override
+    public List<Screening> getScreeningsByDate(Calendar date){
+        TypedQuery<Screening> query = em.createNamedQuery("getScreeningsByDate", Screening.class);
+        query.setParameter("date", date);
+        return query.getResultList();
+    }
     
 }

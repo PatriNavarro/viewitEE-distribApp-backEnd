@@ -14,7 +14,7 @@ import javax.ejb.Startup;
 @Singleton
 public class TheLogger {
     private String status;
-    private Logger LOG = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+    private static Logger LOG = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     
     @PostConstruct
     void init() {
@@ -38,7 +38,7 @@ public class TheLogger {
         LOG.log(Level.INFO,"Logger ready too!");
     }
     
-    public Logger getLog() {
+    public static Logger getLog() {
         return LOG;
     }
     

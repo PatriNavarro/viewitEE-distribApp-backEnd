@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface ProductFacadeLocal {
 
-    void create(Product product);
+    Product create(Product product);
 
     void edit(Product product);
 

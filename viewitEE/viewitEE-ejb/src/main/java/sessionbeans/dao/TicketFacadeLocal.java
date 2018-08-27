@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface TicketFacadeLocal {
 
-    void create(Ticket ticket);
+    Ticket create(Ticket ticket);
 
     void edit(Ticket ticket);
 

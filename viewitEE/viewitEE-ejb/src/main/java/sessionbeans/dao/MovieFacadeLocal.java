@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface MovieFacadeLocal {
 
-    void create(Movie movie);
+    Movie create(Movie movie);
 
     void edit(Movie movie);
 

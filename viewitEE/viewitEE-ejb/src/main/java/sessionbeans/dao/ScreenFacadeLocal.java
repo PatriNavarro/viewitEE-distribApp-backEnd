@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface ScreenFacadeLocal {
 
-    void create(Screen screen);
+    Screen create(Screen screen);
 
     void edit(Screen screen);
 

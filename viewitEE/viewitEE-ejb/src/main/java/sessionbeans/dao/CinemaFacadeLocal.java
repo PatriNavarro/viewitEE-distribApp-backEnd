@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface CinemaFacadeLocal {
 
-    void create(Cinema cinema);
+    Cinema create(Cinema cinema);
 
     void edit(Cinema cinema);
 

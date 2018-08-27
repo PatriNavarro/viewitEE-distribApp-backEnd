@@ -15,7 +15,7 @@ public class Screen implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "screen_id")
     private Long screenId;
     @Column (name = "screen_number")

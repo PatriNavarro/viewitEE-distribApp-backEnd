@@ -18,7 +18,7 @@ import javax.ejb.Local;
 @Local
 public interface ScreeningFacadeLocal {
 
-    void create(Screening screening);
+    Screening create(Screening screening);
 
     void edit(Screening screening);
 

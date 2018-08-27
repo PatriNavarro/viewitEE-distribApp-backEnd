@@ -5,6 +5,7 @@ sessionbeans\dao\EdibleFacade.class
 sessionbeans\dao\UserFacadeLocal.class
 entities\inherited\Ticket.class
 sessionbeans\dao\ScreenFacadeLocal.class
+sessionbeans\stateful\Order.class
 entities\TotalOrder_.class
 sessionbeans\dao\ScreenFacade.class
 sessionbeans\dao\CinemaFacade.class
@@ -31,6 +32,7 @@ entities\Product.class
 sessionbeans\singleton\TheLogger.class
 sessionbeans\dao\TotalOrderFacadeLocal.class
 sessionbeans\dao\OrderDetailFacadeLocal.class
+sessionbeans\stateful\OrderLocal.class
 entities\compositePK\ScreeningId.class
 entities\embeddables\MovieDetails.class
 entities\OrderDetail_.class

@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class TotalOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "order_id")
     private Long orderId;
     
@@ -29,20 +30,18 @@ public class TotalOrder implements Serializable {
     @ManyToOne
     private User user;
     
-    @Column (name = "order_detail_id")
-    private Long orderDetail;
-    @OneToMany 
+    @OneToMany(cascade= CascadeType.REMOVE )
     @JoinColumn(name = "order_detail_id", referencedColumnName = "order_detail_id")
     private List<OrderDetail> orderDetails;
     
 
-    @Column (name = "created_ate")
+    @Column (name = "created_date")
     @Temporal(TemporalType.DATE)
     private Calendar createdDate;
 
 
     @Column (name = "total")
-    private Double total;
+    private double total;
 
     public User getUser() {
         return user;
@@ -50,14 +49,6 @@ public class TotalOrder implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Long getOrderDetail() {
-        return orderDetail;
-    }
-
-    public void setOrderDetail(Long orderDetail) {
-        this.orderDetail = orderDetail;
     }
 
     public List<OrderDetail> getOrderDetails() {

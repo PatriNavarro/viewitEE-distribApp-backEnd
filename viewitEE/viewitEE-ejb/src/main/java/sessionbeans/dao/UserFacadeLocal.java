@@ -7,7 +7,7 @@ import javax.ejb.Local;
 @Local
 public interface UserFacadeLocal {
 
-    void create(User user);
+    User create(User user);
 
     void edit(User user);
 
@@ -21,4 +21,7 @@ public interface UserFacadeLocal {
 
     int count();
     
+    public List<String> checkEmail(String email);
+    public List<String> checkPassword(String email);
+    public Long getIdFromEmail(String email);
 }

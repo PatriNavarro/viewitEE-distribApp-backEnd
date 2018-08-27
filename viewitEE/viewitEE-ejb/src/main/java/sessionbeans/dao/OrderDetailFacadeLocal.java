@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface OrderDetailFacadeLocal {
 
-    void create(OrderDetail orderDetail);
+    OrderDetail create(OrderDetail orderDetail);
 
     void edit(OrderDetail orderDetail);
 

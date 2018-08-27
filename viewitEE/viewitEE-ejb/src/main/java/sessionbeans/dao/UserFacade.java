@@ -4,6 +4,7 @@ import entities.Group;
 import entities.User;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -27,6 +28,39 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
         super(User.class);
     }
     
+    @Override
+    public List<String> checkEmail(String email){
+        System.out.println("checking email...");
+      TypedQuery<String> query = em.createNamedQuery("getUserEmail",String.class);
+      query.setParameter("email", email);
+      List<String> resultList = query.getResultList();
+      return resultList;
+      //return query.getSingleResult();
+    }
+    
+            
+    @Override
+    public List<String> checkPassword(String email){
+      System.out.println("checking password...");
+      TypedQuery<String> query = em.createNamedQuery("getUserPassword",String.class);
+      query.setParameter("email", email);
+      List<String> resultList = query.getResultList();
+      return resultList;
+      //return query.getSingleResult();
+    }   
+    
+    @Override
+    public Long getIdFromEmail(String email){
+      System.out.println("getting userId...");
+      TypedQuery<Long> query = em.createNamedQuery("getUserId",Long.class);
+      query.setParameter("email", email);
+      Long resultList = query.getResultList().get(0);
+      System.out.println("userId = "+resultList);
+      return resultList;
+    }
+    
+    
+    /*
     // The createUser method first encodes the plain text 
     //password into SHA-256 String, then stores both objects – User and Group to the database.
     @Override
@@ -59,5 +93,5 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal 
 		// ignore exception and return NULL for user instead
 	}
 	return user;
-    }
+    }*/
 }

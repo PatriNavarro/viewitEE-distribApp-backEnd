@@ -16,7 +16,7 @@ public class OrderDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "order_detail_id")
     private Long orderDetailId;
     
@@ -25,10 +25,15 @@ public class OrderDetail implements Serializable {
     private Product product;
     
     @Column (name = "quantity")
-    private Integer quantity;
+    private int quantity;
     
     @Column (name = "order_detail_price")
-    private Double orderDetailPrice;
+    private double orderDetailPrice;
+    
+    @ManyToOne
+    @JoinColumn (name = "order_id")
+    private TotalOrder order;
+    
 
     public Long getOrderDetailId() {
         return orderDetailId;
@@ -60,9 +65,15 @@ public class OrderDetail implements Serializable {
 
     public void setOrderDetailPrice(Double orderDetailPrice) {
         this.orderDetailPrice = orderDetailPrice;
+    }    
+    
+    public TotalOrder getOrder() {
+        return order;
     }
-    
-    
+
+    public void setOrder(TotalOrder order) {
+        this.order = order;
+    }
 
     @Override
     public int hashCode() {

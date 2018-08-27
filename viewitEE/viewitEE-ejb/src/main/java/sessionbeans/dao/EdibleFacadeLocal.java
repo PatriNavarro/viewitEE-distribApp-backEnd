@@ -16,7 +16,7 @@ import javax.ejb.Local;
 @Local
 public interface EdibleFacadeLocal {
 
-    void create(Edible edible);
+    Edible create(Edible edible);
 
     void edit(Edible edible);
 

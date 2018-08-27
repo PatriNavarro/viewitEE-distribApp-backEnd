@@ -2,24 +2,48 @@ package entities;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table (name = "users")
+@NamedQueries({
+    @NamedQuery(
+        name="getUserEmail",
+        query="SELECT u.userId FROM User u WHERE u.email = :email"
+    ),
+    @NamedQuery(
+        name="getUserPassword",
+        query="SELECT u.password FROM User u WHERE u.email = :email"
+    ),
+    @NamedQuery(
+        name="getUserId",
+        query="SELECT u.userId FROM User u WHERE u.email = :email"
+    )
+})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    /*
+    It relies on an auto-incremented database column and lets the database 
+    generate a new value with each insert operation.
+    */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "user_id")
     private Long userId;
+    
+    @Column (name = "username")
+    private String username;
     
     @Column (name = "email")
     private String email;
@@ -30,6 +54,14 @@ public class User implements Serializable {
     @OneToMany
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private List<TotalOrder> totalOrders;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
     
     public String getEmail() {
         return email;

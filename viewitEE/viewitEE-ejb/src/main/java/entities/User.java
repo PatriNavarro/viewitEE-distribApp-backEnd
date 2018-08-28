@@ -50,11 +50,11 @@ public class User implements Serializable {
     
     @Column (name = "password")
     private String password;
-    
+    /*
     @OneToMany
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private List<TotalOrder> totalOrders;
-
+*/
     public String getUsername() {
         return username;
     }
@@ -66,14 +66,14 @@ public class User implements Serializable {
     public String getEmail() {
         return email;
     }
-
+/*
     public List<TotalOrder> getTotalOrders() {
         return totalOrders;
     }
 
     public void setTotalOrders(List<TotalOrder> totalOrders) {
         this.totalOrders = totalOrders;
-    }
+    }*/
 
     public void setEmail(String email) {
         this.email = email;

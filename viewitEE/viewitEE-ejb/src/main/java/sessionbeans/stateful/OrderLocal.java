@@ -18,7 +18,7 @@ import javax.ejb.Local;
 @Local
 public interface OrderLocal {
 
-    public void initOrder(Long userId);
+    public void initOrder(User user);
 
     public boolean addOrderDetail(OrderDetail od);
 
@@ -34,5 +34,15 @@ public interface OrderLocal {
     
     //public TotalOrder getTotalOrder();
     //public TotalOrder createOrder(TotalOrder to);
+
+    public void setUser(User user);
+
+    public User getUser();
+
+    public void setList(List<OrderDetail> list);
+
+    public void setTotal(double total);
+
+    public void newOrderList();
     
 }

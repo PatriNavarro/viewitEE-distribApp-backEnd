@@ -48,7 +48,7 @@ public class MovieRest {
     @GET
     @Path("/{id}")
     public Movie getMovieInfo(@PathParam("id") Long movieId){
-        //Get the movie (all the details) and the screenings for current date
+        //Get the movie (all the details)
         return movieFacade.find(movieId);
     }
     

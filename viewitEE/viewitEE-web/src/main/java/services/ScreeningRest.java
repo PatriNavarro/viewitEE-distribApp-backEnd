@@ -42,9 +42,18 @@ public class ScreeningRest {
     private ScreeningsCache billboardCache;*/
     
     @GET
-    public List<Screening> getAll(){
+    public List<Screening> getAllScreenings(){
         return screeningFacade.findAll();
     }
+    
+    /*
+    @GET
+    @Path("/{id}")
+    public List<Screening> getScreening(@PathParam("id") Long screeningId){
+        System.out.println("Received input parameter:" + screeningId);
+        return screeningFacade.getScreenings(screeningId);
+    }
+    */
     
     @GET
     @Path("/{movieId}")
@@ -64,20 +73,20 @@ public class ScreeningRest {
     
     @GET
     @Path("/billboard/{date}")
-    public List<Movie> getScreeningMovies(@PathParam("date") String sdate) throws ParseException{
+    public List<Movie> getBillboardByDate(@PathParam("date") String sdate) throws ParseException{
         Calendar date_calendar = calendarConverter.stringToCalendar(sdate,"yyyy-MM-dd");
         return screeningFacade.getScreeningMovies(date_calendar);
     }
     
     @GET
     @Path("/billboard/movie/{movieId}")
-    public Movie getMovieScreening(@PathParam("movieId") Long movieId){
+    public Movie getCurrentBillboardMovie(@PathParam("movieId") Long movieId){
         return getSingleCachedMovie(movieId);
     }
     
     @GET
     @Path("/billboard/movie/{movieId}/screenings")
-    public String getMovieScreenings(@PathParam("movieId") Long movieId) throws JsonProcessingException{
+    public String getCurrentBillboardMovieScreenings(@PathParam("movieId") Long movieId) throws JsonProcessingException{
         List<String> sscreenings = new ArrayList<>();
         List<Calendar> screenings = getSingleCachedMovieScreenings(movieId);
         screenings.stream()
@@ -90,7 +99,7 @@ public class ScreeningRest {
     
     @GET
     @Path("/billboard")
-    public List<Movie> getScreeningMovies(){
+    public List<Movie> getCurrentBillboard(){
         return getMoviesCache();
     }
     

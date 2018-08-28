@@ -30,6 +30,8 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(services.MovieRest.class);
+        resources.add(services.OrderRest.class);
+        resources.add(services.ProductRest.class);
         resources.add(services.ScreeningRest.class);
         resources.add(services.UserRest.class);
     }

@@ -18,6 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
+import sessionbeans.dao.TotalOrderFacadeLocal;
 import sessionbeans.dao.UserFacadeLocal;
 import sessionbeans.singleton.TheLogger;
 import sessionbeans.stateful.OrderLocal;
@@ -37,6 +38,9 @@ public class UserRest {
     @EJB
     private OrderLocal order;
     
+    @EJB
+    private TotalOrderFacadeLocal totalOrderFacade;
+    
     @GET
     //@Path("/all")
     public List<User> getAllUsers(){
@@ -52,8 +56,8 @@ public class UserRest {
             TheLogger.getLog().warning("There is already a user registered with this email");
             return null;
         }
-        userFacade.create(user);
-        return user;
+        
+        return loginUser(userFacade.create(user));
     }
     
     @POST
@@ -71,16 +75,27 @@ public class UserRest {
         }
         //Start a new session for this user
         Long id = userFacade.getIdFromEmail(user.getEmail());
-        order.initOrder(id);
-        return user;
+        User dbUser = userFacade.find(id);
+        order.initOrder(dbUser);
+        System.out.println(order.getUser().getUserId());
+        System.out.println(order.getList().size());
+        return dbUser;
     }
     
-    @POST
+    @GET
     @Path("/logout")
-    public User logoutUser(User user) {
+    public void logoutUser() {
         order.remove();
-        return user;
+        return;
     }
+    
+    /*
+    @GET
+    @Path("/{userId}/order/all")
+    public List<TotalOrder> getAllUserOrders(User user){
+        
+    }
+    */
     
     @POST
     @Path("/order/add")
@@ -100,7 +115,6 @@ public class UserRest {
     @GET
     @Path("/order/purchase")
     public void purchaseOrder(){
-        //return order.purchase();
         order.purchase();
     }
     /*
@@ -108,5 +122,17 @@ public class UserRest {
     @Path("/order/createOrder")
     public TotalOrder createOrder(TotalOrder totalOrder){
         return order.createOrder(totalOrder);
+    }*/
+    
+    @GET
+    @Path("/order/all")
+    public List<TotalOrder> getAllOrders(){
+        return totalOrderFacade.findAll();
+    }
+    /*
+    @GET
+    @Path("/{id}/order/all")
+    public List<TotalOrder> getAllUserOrders(){
+        
     }*/
 }

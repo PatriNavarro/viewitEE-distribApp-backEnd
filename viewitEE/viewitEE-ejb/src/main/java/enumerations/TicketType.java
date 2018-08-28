@@ -7,16 +7,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum TicketType {
-    Regular,VIP,Elderly,Young,Night;
+    Regular,VIP,AgeDiscount;
 
         private static final Map<String,TicketType> ticketTypeMap = new HashMap<String,TicketType>();
 
         static{
             ticketTypeMap.put("Regular",Regular);
             ticketTypeMap.put("VIP",VIP);
-            ticketTypeMap.put("Elderly",Elderly);
-            ticketTypeMap.put("Young",Young);
-            ticketTypeMap.put("Night",Night);
+            ticketTypeMap.put("Age Discount",AgeDiscount);
         }
 
         @JsonCreator

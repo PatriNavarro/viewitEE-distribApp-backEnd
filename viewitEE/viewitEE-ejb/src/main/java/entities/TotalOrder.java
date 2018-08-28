@@ -29,11 +29,11 @@ public class TotalOrder implements Serializable {
     @JoinColumn(name="user_id")
     @ManyToOne
     private User user;
-    
+    /*
     @OneToMany(cascade= CascadeType.REMOVE )
     @JoinColumn(name = "order_detail_id", referencedColumnName = "order_detail_id")
     private List<OrderDetail> orderDetails;
-    
+    */
 
     @Column (name = "created_date")
     @Temporal(TemporalType.DATE)
@@ -50,7 +50,7 @@ public class TotalOrder implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-
+/*
     public List<OrderDetail> getOrderDetails() {
         return orderDetails;
     }
@@ -58,7 +58,7 @@ public class TotalOrder implements Serializable {
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
-
+*/
     public double getTotal() {
         return total;
     }

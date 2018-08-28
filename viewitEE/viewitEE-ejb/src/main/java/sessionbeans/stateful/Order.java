@@ -22,7 +22,7 @@ import sessionbeans.singleton.TheLogger;
 public class Order implements OrderLocal {
 
     private User user;
-    private List<OrderDetail> list;
+    private List<OrderDetail> list;//= new ArrayList<>();
     private double total;
     @EJB
     private TotalOrderFacadeLocal totalOrderFacade;
@@ -34,10 +34,17 @@ public class Order implements OrderLocal {
     private EntityManager em;
     
     @Override
-    public void initOrder(Long userId) {
-        this.user = userFacade.find(userId);
+    public void initOrder(User user) {
+        this.user = user;
         this.list = new ArrayList<>();
+        //this.newOrderList();
         this.total = 0;
+    }
+    
+    @Override
+    public void newOrderList(){
+        //if(!this.list.isEmpty()) remove();
+        this.list = new ArrayList<>();
     }
     
     @Override
@@ -57,26 +64,32 @@ public class Order implements OrderLocal {
         return true;
     }
 
+    @Override
     public User getUser() {
         return user;
     }
 
+    @Override
     public void setUser(User user) {
         this.user = user;
     }
 
+    @Override
     public List<OrderDetail> getList() {
         return list;
     }
 
+    @Override
     public void setList(List<OrderDetail> list) {
         this.list = list;
     }
 
+    @Override
     public double getTotal() {
         return total;
     }
 
+    @Override
     public void setTotal(double total) {
         this.total = total;
     }
@@ -94,16 +107,19 @@ public class Order implements OrderLocal {
     @Remove
     @Override
     public void remove() {
+        user = null;
         list = null;
     }
     
     @Override
-    @EJB(beanName="entities.TotalOrder")
+    //@EJB(beanName="entities.TotalOrder")
     public void purchase(){
         //Generate a new totalOrder and persist it in the database
         TotalOrder totalOrder = new TotalOrder();
         totalOrder.setCreatedDate(Calendar.getInstance());
+        //System.out.println("User id = "+user.getUserId());
         totalOrder.setUser(user);
+        
         totalOrder.setTotal(total);
         totalOrder = totalOrderFacade.create(totalOrder);
         
@@ -113,7 +129,7 @@ public class Order implements OrderLocal {
             od.setOrder(totalOrder);
             od = orderDetailFacade.create(od);
         }
-        
+        /**/
         //Once purchased we reset the list
         remove();
     }

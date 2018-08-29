@@ -25,6 +25,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 import sessionbeans.dao.MovieFacadeLocal;
+import sessionbeans.singleton.ScreeningsCache;
 
 @Path("/movies")
 @Stateless
@@ -39,6 +40,8 @@ public class MovieRest {
     private EntityManager em;
     @EJB
     private MovieFacadeLocal movieFacade;
+    @EJB
+    private ScreeningsCache screeningCache;
     
     @GET
     public List<Movie> getMovies(){
@@ -66,6 +69,8 @@ public class MovieRest {
     public void editMovie (Movie movie){
         System.out.println(movie);
         movieFacade.edit(movie);
+        //Refresh cached billboard
+        screeningCache.resetScreeningsCache();
     }
     
     @DELETE

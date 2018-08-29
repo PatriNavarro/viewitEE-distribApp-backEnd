@@ -13,7 +13,9 @@ import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -56,8 +58,19 @@ public class UserRest {
             TheLogger.getLog().warning("There is already a user registered with this email");
             return null;
         }
-        
         return loginUser(userFacade.create(user));
+    }
+    
+    @PUT
+    @Path("/edit")
+    public void editUser(User user){
+        userFacade.edit(user);
+    }
+    
+    @GET
+    @Path("/find/{id}")
+    public User getUser(@PathParam("id") Long userId){
+        return userFacade.find(userId);
     }
     
     @POST

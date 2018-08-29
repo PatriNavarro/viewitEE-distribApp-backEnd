@@ -131,7 +131,8 @@ public class Order implements OrderLocal {
         }
         /**/
         //Once purchased we reset the list
-        remove();
+        //remove();
+        newOrderList();
     }
     /*
     @Override

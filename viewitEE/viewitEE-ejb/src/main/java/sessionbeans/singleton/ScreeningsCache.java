@@ -33,7 +33,7 @@ public class ScreeningsCache {
     }
     
     @Schedule(second="0", minute="0", hour="0")
-    private void resetScreeningsCache(){
+    public void resetScreeningsCache(){
        getLog().info("Refreshing screenings cache");
        Calendar today = Calendar.getInstance();
        screeningsCache = screeningFacade.getScreeningsByDate(today);
